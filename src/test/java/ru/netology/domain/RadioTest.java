@@ -1,8 +1,6 @@
 package ru.netology.domain;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -124,7 +122,7 @@ public class RadioTest {
         // downgradeVolume
 
         @Test
-        public void shouldDowngradeVolumeVolume() {
+        public void shouldDowngradeVolume() {
             radio.setCurrentVolume(8);
             radio.downgradeVolume();
             int expected = 7;
@@ -133,7 +131,7 @@ public class RadioTest {
         }
 
         @Test
-        public void shouldDowngradeVolumeVolumeMin() {
+        public void shouldDowngradeVolumeMin() {
             radio.setCurrentVolume(0);
             radio.downgradeVolume();
             int expected = 0;
