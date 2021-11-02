@@ -1,21 +1,33 @@
 package ru.netology.domain;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@Data
 public class Radio {
 
     private int currentStation;
     private int currentVolume;
+    private int numberOfStation = 10;
 
-
-    public int getCurrentStation() {
-        return currentStation;
+    public Radio(int numberOfStation) {
+        this.numberOfStation = numberOfStation;
     }
 
-    public int getCurrentVolume() {
-        return currentVolume;
+    // numberOfStation
+
+    public void setNumberOfStation(int numberOfStation) {
+        if (numberOfStation < 0) {
+            return;
+        }
+        this.numberOfStation = numberOfStation;
     }
+
+    // currentStation
 
     public void setCurrentStation(int currentStation) {
-        if (currentStation > 9) {
+        if (currentStation > numberOfStation - 1) {
             return;
         }
         if (currentStation < 0) {
@@ -24,18 +36,8 @@ public class Radio {
         this.currentStation = currentStation;
     }
 
-    public void setCurrentVolume(int currentVolume) {
-        if (currentVolume > 10) {
-            return;
-        }
-        if (currentVolume < 0) {
-            return;
-        }
-        this.currentVolume = currentVolume;
-    }
-
     public void raisingStation() {
-        if (currentStation < 9) {
+        if (currentStation < numberOfStation - 1) {
             currentStation++;
         } else {
             currentStation = 0;
@@ -46,12 +48,24 @@ public class Radio {
         if (currentStation > 0) {
             currentStation--;
         } else {
-            currentStation = 9;
+            currentStation = numberOfStation - 1;
         }
     }
 
+    // currentVolume
+
+    public void setCurrentVolume(int currentVolume) {
+        if (currentVolume > 100) {
+            return;
+        }
+        if (currentVolume < 0) {
+            return;
+        }
+        this.currentVolume = currentVolume;
+    }
+
     public void raisingVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume < 100) {
             currentVolume++;
         }
     }
