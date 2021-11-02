@@ -1,23 +1,21 @@
 package ru.netology.domain;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@Data
 public class Radio {
 
     private int currentStation;
     private int currentVolume;
     private int numberOfStation = 10;
 
-    public Radio() {
-    }
-
     public Radio(int numberOfStation) {
         this.numberOfStation = numberOfStation;
     }
 
     // numberOfStation
-
-    public int getNumberOfStation() {
-        return numberOfStation;
-    }
 
     public void setNumberOfStation(int numberOfStation) {
         if (numberOfStation < 0) {
@@ -27,10 +25,6 @@ public class Radio {
     }
 
     // currentStation
-
-    public int getCurrentStation() {
-        return currentStation;
-    }
 
     public void setCurrentStation(int currentStation) {
         if (currentStation > numberOfStation - 1) {
@@ -59,10 +53,6 @@ public class Radio {
     }
 
     // currentVolume
-
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
 
     public void setCurrentVolume(int currentVolume) {
         if (currentVolume > 100) {
